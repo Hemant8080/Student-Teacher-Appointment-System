@@ -50,10 +50,6 @@ A comprehensive React application for managing student-teacher appointments with
 
 ### Default Admin Credentials
 
-Use these credentials to log in as admin (or update in Firebase Console):
-
-- **Email:** .com
-- **Password:** admin12345
 
 You can change these in Firebase Authentication and Firestore as needed.
 
