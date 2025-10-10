@@ -5,12 +5,12 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCvkmwKXs5KyDyHgR29taeSuR1_jHdUENI",
-  authDomain: "studentteacher-8f208.firebaseapp.com",
-  projectId: "studentteacher-8f208",
-  storageBucket: "studentteacher-8f208.firebasestorage.app",
-  messagingSenderId: "988952181413",
-  appId: "1:988952181413:web:57335e9caa6375b390ab4c"
+  apiKey: "your-api-key",
+  authDomain: "your-project.firebaseapp.com",
+  projectId: "your-project-id",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "your-sender-id",
+  appId: "your-app-id"
 };
 
 // Initialize Firebase
