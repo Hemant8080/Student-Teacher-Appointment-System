@@ -5,6 +5,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import AdminDashboard from './components/Admin/AdminDashboard';
+import AdminRegister from './components/Admin/AdminRegister';
 import TeacherDashboard from './components/Teacher/TeacherDashboard';
 import StudentDashboard from './components/Student/StudentDashboard';
 
@@ -37,6 +38,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+  <Route path="/register-as-admin" element={<AdminRegister />} />
       
       <Route 
         path="/admin" 

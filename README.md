@@ -38,16 +38,6 @@ A comprehensive React application for managing student-teacher appointments with
 
 ## Getting started (quick)
 
-### How to create an admin (simple idea)
-
-1. Register a new user using the app's registration form (this will create a student by default).
-2. Go to your Firebase Console → Firestore Database → `users` collection.
-3. Find the document for the newly registered user (document ID matches their UID).
-4. Edit the document:
-   - Change `role` to `admin`
-   - Set `approved` to `true`
-5. Now you can log in with this account as an admin.
-
 ### Default Admin Credentials
 
 
@@ -77,6 +67,37 @@ npm run dev
 ```
 
 Open http://localhost:5173 (Vite default) in your browser.
+
+## Create an Admin (new route)
+
+You can now create an admin account directly from the application using a dedicated route.
+
+1. Start the dev server if it's not already running:
+
+```powershell
+npm install
+npm run dev
+```
+
+2. Open the admin registration page in your browser:
+
+```
+http://localhost:5173/register-as-admin
+```
+
+3. Fill the form (Full Name, Email, optional Phone, Password, Confirm Password) and submit.
+
+Notes:
+- Admin accounts are created with `role: 'admin'` and — per the current backend logic — are auto-approved, so the new admin can sign in immediately.
+- After successful creation the app automatically navigates to `/admin`.
+
+Security considerations:
+- Public admin registration is unsafe for production. Consider one of the following improvements before deploying:
+   - Protect this route so only currently-authenticated admins can create new admins (move it behind `ProtectedRoute` + `allowedRoles: ['admin']`).
+   - Add an invite code or secret token required to create an admin.
+   - Disable public access to this page in production builds and only use Firebase Console or server-side scripts to create admin users.
+
+If you prefer the manual Firebase method (existing instructions above), you can still create users via the Firebase Console and toggle the `role` and `approved` fields in the `users` collection.
 
 ## Development workflow (roles & flow)
 
@@ -214,14 +235,6 @@ npm install
 npm run dev
 ```
 
-### Demo Credentials
-
-The system includes demo accounts for testing:
-
-- **Admin**: admin@university.edu / admin123
-- **Teacher**: john.smith@university.edu / teacher123  
-- **Student**: alice.brown@student.edu / student123
-
 ## Firebase Collections
 
 ### Users Collection
@@ -241,14 +254,4 @@ The system includes demo accounts for testing:
 - **Input validation** on all forms
 - **Protected API endpoints** for admin functions
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License.
